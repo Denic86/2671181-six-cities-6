@@ -1,25 +1,41 @@
-function Card({
-  title,
-  type,
-  price,
-  image,
-  ratingWidth,
-  isPremium = false,
-  isBookmarked = false,
-}: Card): JSX.Element {
-  const bookmarkButtonClassName = `place-card__bookmark-button ${
-    isBookmarked ? 'place-card__bookmark-button--active ' : ''
-  }button`;
+
+import classNames from 'classnames';
+import { Link } from 'react-router-dom';
+
+type OfferCardProps = {
+  card: Card;
+  setActiveOffer: (card: Card | null) => void;
+};
+
+function Card({ setActiveOffer, card }: OfferCardProps): JSX.Element {
+  const {
+    isPremium = false,
+    isBookmarked = false,
+    image,
+    price,
+    ratingWidth,
+    title,
+    type,
+  } = card;
+  const bookmarkButtonClassName = classNames(
+    'place-card__bookmark-button',
+    'button',
+    { 'place-card__bookmark-button--active': isBookmarked }
+  );
 
   return (
-    <article className="cities__card place-card">
-      {isPremium && (
+    <article
+      onMouseEnter={() => setActiveOffer(card)}
+      onMouseLeave={() => setActiveOffer(null)}
+      className="cities__card place-card"
+    >
+      {isPremium || (
         <div className="place-card__mark">
           <span>Premium</span>
         </div>
       )}
       <div className="cities__image-wrapper place-card__image-wrapper">
-        <a href="#">
+        <Link to={`/offer/${card.id}`}>
           <img
             className="place-card__image"
             src={image}
@@ -27,7 +43,7 @@ function Card({
             height="200"
             alt="Place image"
           />
-        </a>
+        </Link>
       </div>
       <div className="place-card__info">
         <div className="place-card__price-wrapper">
@@ -51,7 +67,7 @@ function Card({
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="#">{title}</a>
+          <Link to={`/offer/${card.id}`}>{title}</Link>
         </h2>
         <p className="place-card__type">{type}</p>
       </div>

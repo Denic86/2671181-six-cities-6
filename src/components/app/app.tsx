@@ -4,28 +4,36 @@ import Login from '../../pages/login/login';
 import Offer from '../../pages/offer/offer';
 import Favorites from '../../pages/favorites/favorites';
 import NotFound from '../../pages/notFound/notFound';
-import PrivateRoute from '../PrivateRoute/PrivateRoute';
+import PrivateRoute from '../privateRoute/privateRoute';
+import { Cards } from '../../mocks/offers';
+import { FavoritesForm } from '../../mocks/favorites';
 
+function App(): JSX.Element {
+  const isAuthorized = true; // Пока всегда авторизован
 
-type Props = {
-  cards: Card[];
-};
-
-function App({ cards }: Props): JSX.Element {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Main cards={cards} />} />
+        <Route
+          path="/"
+          element={<Main cards={Cards} isAuthorized={isAuthorized} />}
+        />
         <Route path="/login" element={<Login />} />
         <Route
           path="/favorites"
           element={
-            <PrivateRoute>
-              <Favorites />
+            <PrivateRoute isAuthorized={isAuthorized}>
+              <Favorites
+                favorites={FavoritesForm}
+                isAuthorized={isAuthorized}
+              />
             </PrivateRoute>
           }
         />
-        <Route path="/offer/:id" element={<Offer />} />
+        <Route
+          path="/offer/:id"
+          element={<Offer isAuthorized={isAuthorized} />}
+        />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
@@ -33,3 +41,4 @@ function App({ cards }: Props): JSX.Element {
 }
 
 export default App;
+
