@@ -3,7 +3,7 @@ import Header from '../../components/header/header';
 import { Link } from 'react-router-dom';
 
 type Props = {
-  favorites: FavoriteOffer[];
+  favorites: FavoriteCard[];
   isAuthorized?: boolean;
 };
 

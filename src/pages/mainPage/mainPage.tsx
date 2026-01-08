@@ -1,5 +1,7 @@
-import OffersList from '../../components/OffersList/OffersList';
+import OffersList from '../../components/offersList/offersList';
+import Map from '../../components/map/map';
 import Header from '../../components/header/header';
+import { useState } from 'react';
 
 type Props = {
   cards: Card[];
@@ -7,6 +9,12 @@ type Props = {
 };
 
 function MainPage({ cards, isAuthorized = true }: Props): JSX.Element {
+  const [activeCard, setActiveCard] = useState<Card | null>(null);
+
+  const mapCenter: [number, number] = cards.length > 0
+    ? [cards[0].latitude, cards[0].longitude]
+    : [52.3909553943508, 4.85309666406198];
+
   return (
     <div className="page page--gray page--main">
       <Header isAuthorized={isAuthorized} favoritesCount={3} />
@@ -80,10 +88,12 @@ function MainPage({ cards, isAuthorized = true }: Props): JSX.Element {
                   </li>
                 </ul>
               </form>
-              <OffersList cards={cards} />
+              <OffersList cards={cards} setActiveCard={setActiveCard} />
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map"></section>
+              <section className="cities__map map">
+                <Map cards={cards} activeCard={activeCard} center={mapCenter} />
+              </section>
             </div>
           </div>
         </div>

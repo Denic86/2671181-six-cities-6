@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 type Props = {
-  offer: FavoriteOffer;
+  offer: FavoriteCard;
 };
 
 function FavoritesCard({ offer }: Props): JSX.Element {
