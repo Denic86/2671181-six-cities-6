@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 
 type OfferCardProps = {
   card: Card;
-  setActiveOffer: (card: Card | null) => void;
+  setActiveCard: (card: Card | null) => void;
 };
 
-function Card({ setActiveOffer, card }: OfferCardProps): JSX.Element {
+function Card({ setActiveCard, card }: OfferCardProps): JSX.Element {
   const {
     isPremium = false,
     isBookmarked = false,
@@ -25,8 +25,8 @@ function Card({ setActiveOffer, card }: OfferCardProps): JSX.Element {
 
   return (
     <article
-      onMouseEnter={() => setActiveOffer(card)}
-      onMouseLeave={() => setActiveOffer(null)}
+      onMouseEnter={() => setActiveCard(card)}
+      onMouseLeave={() => setActiveCard(null)}
       className="cities__card place-card"
     >
       {isPremium || (

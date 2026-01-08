@@ -2,7 +2,7 @@
 import FavoritesCard from '../FavoritesCard/FavoritesCard';
 
 type Props = {
-  favorites: FavoriteOffer[];
+  favorites: FavoriteCard[];
 };
 
 function FavoritesList({ favorites }: Props): JSX.Element {
@@ -12,7 +12,7 @@ function FavoritesList({ favorites }: Props): JSX.Element {
     }
     acc[card.city].push(card);
     return acc;
-  }, {} as Record<string, FavoriteOffer[]>);
+  }, {} as Record<string, FavoriteCard[]>);
 
   return (
     <ul className="favorites__list">

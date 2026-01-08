@@ -10,6 +10,8 @@ export const Cards: Card[] = [
     ratingWidth: 80,
     isPremium: true,
     isBookmarked: false,
+    latitude: 52.3909553943508,
+    longitude: 4.85309666406198,
   },
   {
     id: uuid(),
@@ -20,6 +22,8 @@ export const Cards: Card[] = [
     ratingWidth: 80,
     isPremium: false,
     isBookmarked: true,
+    latitude: 52.3609553943508,
+    longitude: 4.85309666406198,
   },
   {
     id: uuid(),
@@ -30,6 +34,8 @@ export const Cards: Card[] = [
     ratingWidth: 80,
     isPremium: false,
     isBookmarked: false,
+    latitude: 52.3909553943508,
+    longitude: 4.929309666406198,
   },
   {
     id: uuid(),
@@ -40,5 +46,7 @@ export const Cards: Card[] = [
     ratingWidth: 80,
     isPremium: false,
     isBookmarked: true,
+    latitude: 52.3809553943508,
+    longitude: 4.939309666406198,
   },
 ];

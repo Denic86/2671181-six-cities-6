@@ -1,4 +1,4 @@
-type Card ={
+type Card = {
   id: string;
   title: string;
   type: string;
@@ -7,15 +7,19 @@ type Card ={
   ratingWidth: number;
   isPremium: boolean;
   isBookmarked: boolean;
+  latitude: number;
+  longitude: number;
 };
 
-type FavoriteOffer = {
+type FavoriteCard = {
   id: string;
   title: string;
   type: string;
   price: number;
   image: string;
-  ratingPercent: number;
+  ratingWidth: number;
   isPremium: boolean;
   city: string;
+  latitude: number;
+  longitude: number;
 };
