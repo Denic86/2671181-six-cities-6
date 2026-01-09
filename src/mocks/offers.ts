@@ -1,4 +1,6 @@
 import { v4 as uuid } from 'uuid';
+import type { Card } from '../alltypes';
+
 
 export const Cards: Card[] = [
   {

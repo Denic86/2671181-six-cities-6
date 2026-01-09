@@ -1,4 +1,5 @@
 import NearbyOfferCard from '../NearbyOfferCard/NearbyOfferCard';
+import type { Card } from '../../alltypes';
 
 type NearbyOffersListProps = {
   cards: Card[];

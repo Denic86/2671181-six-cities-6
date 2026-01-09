@@ -1,4 +1,5 @@
 import { v4 as uuid } from 'uuid';
+import type { FavoriteCard } from '../alltypes';
 
 export const FavoritesForm: FavoriteCard[] = [
   {

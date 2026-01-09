@@ -1,5 +1,6 @@
 
 import FavoritesCard from '../FavoritesCard/FavoritesCard';
+import type { FavoriteCard } from '../../alltypes';
 
 type Props = {
   favorites: FavoriteCard[];

@@ -1,4 +1,5 @@
 import OfferCard from '../card/card';
+import type { Card } from '../../alltypes';
 
 type Props = {
   cards: Card[];

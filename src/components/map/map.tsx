@@ -1,4 +1,5 @@
 import { useMap } from './useMap';
+import type { Card } from '../../alltypes';
 
 type MapProps = {
   cards: Card[];
