@@ -1,119 +1,41 @@
-import { useState } from 'react';
-
-type ReviewFormData = {
-  rating: number;
-  review: string;
+type ReviewProps = {
+  review: Review;
 };
 
-function getRatingTitle(rating: number): string {
-  const ratingLabelsMap: { [key: string]: string } = {
-    5: 'perfect',
-    4: 'good',
-    3: 'not bad',
-    2: 'badly',
-    1: 'terribly',
-  };
-
-  return ratingLabelsMap[rating];
-}
-
-function Review(): JSX.Element {
-  const [formData, setFormData] = useState<ReviewFormData>({
-    rating: 0,
-    review: '',
-  });
-
-  const handleRatingChange = (rating: number) => {
-    setFormData((prev) => ({
-      ...prev,
-      rating,
-    }));
-  };
-
-  const handleReviewChange = (
-    event: React.ChangeEvent<HTMLTextAreaElement>
-  ) => {
-    setFormData((prev) => ({
-      ...prev,
-      review: event.target.value,
-    }));
-  };
-
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    setFormData({
-      rating: 0,
-      review: '',
-    });
-
-  };
-
-  const isFormValid = formData.rating > 0 && formData.review.length >= 50;
+function Review({ review }: ReviewProps): JSX.Element {
+  const { user, rating, comment, date } = review;
+  const ratingPercent = (rating / 5) * 100;
 
   return (
-    <form
-      className="reviews__form form"
-      action="#"
-      method="post"
-      onSubmit={handleSubmit}
-    >
-      <label className="reviews__label form__label" htmlFor="review">
-        Your review
-      </label>
-      <div className="reviews__rating-form form__rating">
-        {[5, 4, 3, 2, 1].map((rating) => (
-          <div key={rating}>
-            <input
-              className="form__rating-input visually-hidden"
-              name="rating"
-              value={rating}
-              id={`${rating}-stars`}
-              type="radio"
-              checked={formData.rating === rating}
-              onChange={() => handleRatingChange(rating)}
-            />
-            <label
-              htmlFor={`${rating}-stars`}
-              className="reviews__rating-label form__rating-label"
-              title={getRatingTitle(rating)}
-            >
-              <svg className="form__star-image" width="37" height="33">
-                <use xlinkHref="#icon-star"></use>
-              </svg>
-            </label>
+    <li className="reviews__item">
+      <div className="reviews__user user">
+        <div className="reviews__avatar-wrapper user__avatar-wrapper">
+          <img
+            className="reviews__avatar user__avatar"
+            src={user.avatar}
+            width="54"
+            height="54"
+            alt="Reviews avatar"
+          />
+        </div>
+        <span className="reviews__user-name">{user.name}</span>
+      </div>
+      <div className="reviews__info">
+        <div className="reviews__rating rating">
+          <div className="reviews__stars rating__stars">
+            <span style={{ width: `${ratingPercent}%` }}></span>
+            <span className="visually-hidden">Rating</span>
           </div>
-        ))}
+        </div>
+        <p className="reviews__text">{comment}</p>
+        <time className="reviews__time" dateTime={date}>
+          {new Date(date).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+          })}
+        </time>
       </div>
-      <textarea
-        className="reviews__textarea form__textarea"
-        id="review"
-        name="review"
-        placeholder="Tell how was your stay, what you like and what can be improved"
-        value={formData.review}
-        onChange={handleReviewChange}
-      />
-      <div className="reviews__button-wrapper">
-        <p className="reviews__help">
-          To submit review please make sure to set{' '}
-          <span className="reviews__star">rating</span> and describe your stay
-          with at least <b className="reviews__text-amount">50 characters</b>.
-          {formData.review.length > 0 && (
-            <span className="reviews__char-count">
-              {' '}
-              ({formData.review.length}/50)
-            </span>
-          )}
-        </p>
-        <button
-          className="reviews__submit form__submit button"
-          type="submit"
-          disabled={!isFormValid}
-        >
-          Submit
-        </button>
-      </div>
-    </form>
+    </li>
   );
 }
 
