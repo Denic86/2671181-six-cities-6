@@ -1,4 +1,4 @@
-type Review = {
+export interface ReviewType {
   id: string;
   user: {
     name: string;
@@ -7,9 +7,9 @@ type Review = {
   rating: number;
   comment: string;
   date: string;
-};
+}
 
-type Card = {
+export interface Card {
   id: string;
   title: string;
   type: string;
@@ -20,10 +20,10 @@ type Card = {
   isBookmarked: boolean;
   latitude: number;
   longitude: number;
-  reviews: Review[];
-};
+  reviews: ReviewType[];
+}
 
-type FavoriteCard = {
+export interface FavoriteCard {
   id: string;
   title: string;
   type: string;
@@ -34,4 +34,4 @@ type FavoriteCard = {
   city: string;
   latitude: number;
   longitude: number;
-};
+}

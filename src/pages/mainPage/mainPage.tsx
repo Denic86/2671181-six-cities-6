@@ -2,6 +2,7 @@ import OffersList from '../../components/offersList/offersList';
 import Map from '../../components/map/map';
 import Header from '../../components/header/header';
 import { useState } from 'react';
+import type { Card } from '../../alltypes';
 
 type Props = {
   cards: Card[];

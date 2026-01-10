@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { URL_MARKER_CURRENT, URL_MARKER_DEFAULT } from './constants';
+import type { Card } from '../../alltypes';
 
 const defaultIcon = L.icon({
   iconUrl: URL_MARKER_DEFAULT,

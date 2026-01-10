@@ -1,6 +1,7 @@
 import FavoritesList from '../../components/FavoritesList/FavoritesList';
 import Header from '../../components/header/header';
 import { Link } from 'react-router-dom';
+import type { FavoriteCard } from '../../alltypes';
 
 type Props = {
   favorites: FavoriteCard[];

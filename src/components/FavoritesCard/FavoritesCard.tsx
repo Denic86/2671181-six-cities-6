@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import type { FavoriteCard } from '../../alltypes';
 
 type Props = {
   offer: FavoriteCard;
@@ -41,7 +42,7 @@ function FavoritesCard({ offer }: Props): JSX.Element {
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{ width: `${offer.ratingPercent}%` }}></span>
+            <span style={{ width: `${offer.ratingWidth}%` }}></span>
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
