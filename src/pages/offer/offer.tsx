@@ -2,7 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 import { Cards } from '../../mocks/offers';
 import Header from '../../components/header/header';
 import ReviewForm from '../../components/reviewForm/reviewForm';
-import ReviewsList from '../../components/reviewsList/ReviewsList';
+import ReviewsList from '../../components/reviewsList/reviewsList';
 import Map from '../../components/map/map';
 import NearbyOffersList from '../../components/nearbyOffersList/nearbyOffersList';
 
