@@ -1,6 +1,7 @@
 
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
+import type { Card } from '../../alltypes';
 
 type OfferCardProps = {
   card: Card;
