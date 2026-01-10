@@ -4,7 +4,7 @@ import Login from '../../pages/login/login';
 import Offer from '../../pages/offer/offer';
 import Favorites from '../../pages/favorites/favorites';
 import NotFound from '../../pages/notFound/notFound';
-import PrivateRoute from '../privateRoute/PrivateRoute';
+import PrivateRoute from '../privateRoute/privateRoute';
 import { Cards } from '../../mocks/offers';
 import { FavoritesForm } from '../../mocks/favorites';
 
