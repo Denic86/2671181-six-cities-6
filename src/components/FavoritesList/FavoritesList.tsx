@@ -1,5 +1,5 @@
 
-import FavoritesCard from '../favoritesCard/FavoritesCard';
+import FavoritesCard from '../favoritesCard/favoritesCard';
 import type { FavoriteCard } from '../../alltypes';
 
 type Props = {
